@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import * as XLSX from "xlsx";
 
-const API = "http://localhost:8080/api/v1";
+const API = import.meta.env.VITE_API_BASE_URL;
 
 const styles = {
   wrapper: {

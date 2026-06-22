@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef, useCallback } from "react"
 import axios from "axios"
 
-const API = "http://localhost:8080/api/v1"
+const API = import.meta.env.VITE_API_BASE_URL
 
 const PLANS = [
   { code: "MONTHLY", label: "🔵 Monthly Plan", sub: "সব feature, 30 দিন — 199৳", color: "#3B82F6", bg: "#EFF6FF" },
