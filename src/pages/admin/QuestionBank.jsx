@@ -717,12 +717,29 @@ export default function QuestionBank({ token }) {
                     onClick={() => handleOptionChange(i, "isCorrect", true)}
                     style={{ minWidth: "28px", height: "28px", borderRadius: "50%", background: opt.isCorrect ? "#10B981" : "#F1F5F9", color: opt.isCorrect ? "white" : "#64748B", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "12px", fontWeight: "700", cursor: "pointer", border: `2px solid ${opt.isCorrect ? "#10B981" : "#E2E8F0"}` }}
                   >{opt.optionKey}</div>
-                  <input
-                    placeholder={`Option ${opt.optionKey}`}
-                    value={opt.optionText}
-                    onChange={e => handleOptionChange(i, "optionText", e.target.value)}
-                    style={{ flex: 1, padding: "8px 12px", border: `1px solid ${opt.isCorrect ? "#10B981" : "#E2E8F0"}`, borderRadius: "8px", fontSize: "13px", outline: "none", background: opt.isCorrect ? "#ECFDF5" : "#FFFFFF" }}
-                  />
+                  <div key={i} style={{ marginBottom: "12px" }}>
+                    <div style={{ display: "flex", gap: "8px", alignItems: "center", marginBottom: "6px" }}>
+                      <div
+                        onClick={() => handleOptionChange(i, "isCorrect", true)}
+                        style={{ minWidth: "28px", height: "28px", borderRadius: "50%", background: opt.isCorrect ? "#10B981" : "#F1F5F9", color: opt.isCorrect ? "white" : "#64748B", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "12px", fontWeight: "700", cursor: "pointer", border: `2px solid ${opt.isCorrect ? "#10B981" : "#E2E8F0"}` }}
+                      >{opt.optionKey}</div>
+                      <input
+                        placeholder={`Option ${opt.optionKey} text`}
+                        value={opt.optionText}
+                        onChange={e => handleOptionChange(i, "optionText", e.target.value)}
+                        style={{ flex: 1, padding: "8px 12px", border: `1px solid ${opt.isCorrect ? "#10B981" : "#E2E8F0"}`, borderRadius: "8px", fontSize: "13px", outline: "none", background: opt.isCorrect ? "#ECFDF5" : "#FFFFFF" }}
+                      />
+                    </div>
+                    <div style={{ marginLeft: "36px" }}>
+                      <textarea
+                        rows={2}
+                        placeholder={`Option ${opt.optionKey} explanation (ব্যাখ্যা)`}
+                        value={opt.explanation || ""}
+                        onChange={e => handleOptionChange(i, "explanation", e.target.value)}
+                        style={{ width: "100%", padding: "8px 12px", border: "1px solid #E2E8F0", borderRadius: "8px", fontSize: "12px", outline: "none", resize: "vertical", boxSizing: "border-box", color: "#64748B", background: "#FAFAFA" }}
+                      />
+                    </div>
+                  </div>
                 </div>
               ))}
             </div>
